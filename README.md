@@ -9,9 +9,9 @@ To run this application:
 
 ==== Thoughts and Approach
  The app starts with the import page where a JSON is ingested. This page will:
-  *Lookup the restaurant and create it if it does not exist.
-  *Add a record to the Correspondence Model for each user listed
-  *The correspondence will create its own token as a unique identifier
+  - Lookup the restaurant and create it if it does not exist.
+  - Add a record to the Correspondence Model for each user listed
+  - The correspondence will create its own token as a unique identifier
 
 
   You can then view the emails by goin to the "View Emails" link. This will list all of the emails which have been created. You can view the emails by clicking on the "View Email" link next to each record. This will show the email which will be sent to the user. This includes special formatting to comply with HTML clients and to be easily viewed on mobile devices (where over 50% of emails are viewed today).
@@ -30,4 +30,4 @@ To run this application:
    4) Enhance reporting so that the rating of a restaurant can be seperated by day it was visited. E.g. emails sent on Friday for the "finance" team would have one rating. Emails sent on Monday with the "engineering" team would have another rating.
    5) Add rspec tests
    6) Improve the UI of the email and landing page.
-   7) Add a "sent_at" column to each correspondence and write the script that actually sends the emails to the users and logs the email as sent.
+   7) Add a "sent_at" column to each correspondence and write the script that actually sends the emails to the users and logs the email as sent. 
