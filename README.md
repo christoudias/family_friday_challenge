@@ -1,4 +1,5 @@
-== Family Friday Challenge
+<h1>Family Friday Challenge</h1>
+
 This is a solution to the challenge presented by Apartmentlist which is listed here: https://gist.github.com/sarahwiemero/358018196ef6b7e5fec68e103bb25a08
 To run this application:
 1) Download the repo and unzip it.
@@ -30,4 +31,4 @@ To run this application:
    4) Enhance reporting so that the rating of a restaurant can be seperated by day it was visited. E.g. emails sent on Friday for the "finance" team would have one rating. Emails sent on Monday with the "engineering" team would have another rating.
    5) Add rspec tests
    6) Improve the UI of the email and landing page.
-   7) Add a "sent_at" column to each correspondence and write the script that actually sends the emails to the users and logs the email as sent. 
+   7) Add a "sent_at" column to each correspondence and write the script that actually sends the emails to the users and logs the email as sent.
