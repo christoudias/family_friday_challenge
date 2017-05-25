@@ -1,21 +1,26 @@
 <div class="row">
   <div class="col-xs-12">
     <h1>New Email</h1>
+    This is a simple application that takes an input representing a group who has just had lunch together at a local restaurant. The application will then send each member of the team a personalized email asking them to give a rating for the restaurant they just dined at. To begin, enter JSON in the form below. You can then view the emails under the "View Emails" tab. Finally, you can view the restaurants and their ratings on the "View Restaurants" tab.
+    <div class="clearfix" style="padding-bottom:40px;"></div>
   </div>
 </div>
 
-
 <%= render :partial => "layouts/messages" %>
+
 <div class="row">
   <div class="col-md-4">
-    Test cases will go here.
-  </div>
+    <h3>JSON Requirements</h3>
+    <ul>
+      <li>Must have keys named "members" and "restaurant"</li>
+      <li>"members" must be an array</li>
+      <li>Each element in the members array must be a json object with values for "name", "team", and "email"</li>
+      <li>The restaurant element must be a object with values for "logo", "name", "yelp_link"</li>
+    </ul>
 
-  <div class="col-md-4">
-    <%= form_tag url_for(correspondences_path), :method => :post, :id => "cart-form" do %>
-      <label>Enter JSON Here</label>
-      <textarea name="input" class="form-control" placeholder="JSON goes here." style="height:400px;">
-        {
+    <label>Sample Input</label>
+    <pre>
+    {
       "members": [
         {
         "email": "jill@mycompany.com",
@@ -34,11 +39,19 @@
         }
       ],
       "restaurant": {
-      "logo": "http://example.com/images/pizza.png",
-      "name": "Pizza R Us",
-      "yelp_link": "https://yelp.com/pizza-r-us"
+      "logo": "https://www.modernluxury.com/sites/default/files/imagecache/story-photo-slide-show/story/screen_shot_2013-05-06_at_11.07.43_am.png",
+      "name": "South Side Spirit House",
+      "yelp_link": "https://www.yelp.com/biz/southside-spirit-house-san-francisco-4?osq=South+Side+Spirit+House"
       }
     }
+    </pre>
+  </div>
+
+  <div class="col-md-4">
+    <%= form_tag url_for(correspondences_path), :method => :post, :id => "cart-form" do %>
+      <label>Enter JSON Here</label>
+      <textarea name="input" class="form-control" placeholder="JSON goes here." style="height:400px;">
+
       </textarea>
         <br>
       <input type="submit" class="btn btn-primary" value="Create Email Templates"/>

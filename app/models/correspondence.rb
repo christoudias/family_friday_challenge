@@ -6,7 +6,6 @@ class Correspondence < ActiveRecord::Base
   validates_presence_of :team
 
   belongs_to :restaurant
-  has_one :vote
 
   after_create :create_token
 

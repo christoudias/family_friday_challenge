@@ -1,29 +1,75 @@
-<p id="notice"><%= notice %></p>
+<% base_url = "http://localhost:3000" %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @correspondence.email %>
-</p>
+<table align="center" width="600" style="width: 100%; max-width: 600px; margin:20px auto;">
+  <tr>
+    <th>From:</th>
+    <td>Apartmentlist &lt; feeback@apartmentlist.com &gt;</td>
+  </tr>
+  <tr>
+    <th>To:</th>
+    <td><%= @correspondence.email %></td>
+  </tr>
+  <tr>
+    <th>Subject:</th>
+    <td>How was lunch at <%= @correspondence.restaurant.name %>?</td>
+  </tr>
+</table>
 
-<p>
-  <strong>Name:</strong>
-  <%= @correspondence.name %>
-</p>
 
-<p>
-  <strong>Team:</strong>
-  <%= @correspondence.team %>
-</p>
 
-<p>
-  <strong>Restaurant:</strong>
-  <%= @correspondence.restaurant_id %>
-</p>
+<table align="center" width="600" style="width: 100%; max-width: 600px">
+  <tr>
+    <td>
+      Hi <%= @correspondence.name %>,
+      <br><br>
+      You recently went on a trip to <%= @correspondence.restaurant.yelp_link.present? ? (link_to  @correspondence.restaurant.name, @correspondence.restaurant.yelp_link) : @correspondence.restaurant.name %> with the <%= @correspondence.team %> team.  To help us plan more great lunches with our team members, we are asking for your feedback to see how each restaurant was.
 
-<p>
-  <strong>Token:</strong>
-  <%= @correspondence.token %>
-</p>
+      <br><br>
+      Please rate what you thought of <%= @correspondence.restaurant.yelp_link.present? ? (link_to  @correspondence.restaurant.name, @correspondence.restaurant.yelp_link) : @correspondence.restaurant.name %>:<br>
+      <a href="<%= "#{base_url}/rate/#{@correspondence.token}/1" %>" style="text-decoration: none; display:block; margin:10px; 0px;">
+      <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Five-pointed_star.svg/1088px-Five-pointed_star.svg.png" style="height:24px; width:24px;" height="24" width="24">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Five-pointed_star.svg/1088px-Five-pointed_star.svg.png" style="height:24px; width:24px;" height="24" width="24">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Five-pointed_star.svg/1088px-Five-pointed_star.svg.png" style="height:24px; width:24px;" height="24" width="24">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Five-pointed_star.svg/1088px-Five-pointed_star.svg.png" style="height:24px; width:24px;" height="24" width="24">
+      It was terrible. </a><br>
 
-<%= link_to 'Edit', edit_correspondence_path(@correspondence) %> |
-<%= link_to 'Back', correspondences_path %>
+      <a href="<%= "#{base_url}/rate/#{@correspondence.token}/2" %>" style="text-decoration: none; display:block; margin:10px; 0px;">
+        <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Five-pointed_star.svg/1088px-Five-pointed_star.svg.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Five-pointed_star.svg/1088px-Five-pointed_star.svg.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Five-pointed_star.svg/1088px-Five-pointed_star.svg.png" style="height:24px; width:24px;" height="24" width="24">
+
+        Meh... </a><br>
+
+      <a href="<%= "#{base_url}/rate/#{@correspondence.token}/3" %>" style="text-decoration: none; display:block; margin:10px; 0px;">
+        <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Five-pointed_star.svg/1088px-Five-pointed_star.svg.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Five-pointed_star.svg/1088px-Five-pointed_star.svg.png" style="height:24px; width:24px;" height="24" width="24">
+        It was ok. </a><br>
+
+      <a href="<%= "#{base_url}/rate/#{@correspondence.token}/4" %>" style="text-decoration: none; display:block; margin:10px; 0px;">
+        <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Five-pointed_star.svg/1088px-Five-pointed_star.svg.png" style="height:24px; width:24px;" height="24" width="24">
+        I liked it. </a><br>
+
+      <a href="<%= "#{base_url}/rate/#{@correspondence.token}/5" %>" style="text-decoration: none; display:block; margin:10px; 0px;">
+        <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+        <img src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" style="height:24px; width:24px;" height="24" width="24">
+
+        It was great! </a><br>
+
+
+
+    </td>
+  </tr>
+</table>

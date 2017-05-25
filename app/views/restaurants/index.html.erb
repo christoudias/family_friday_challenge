@@ -16,10 +16,10 @@
       <% end %>
       <% @restaurants.each do |rest| %>
       <tr>
-        <td><img src="<%= rest.logo %>"></td>
+        <td><img src="<%= rest.logo %>" class="restaurant-logo"></td>
         <td><%= rest.name %></td>
         <td><%= link_to rest.yelp_link, rest.yelp_link %></td>
-        <td>0</td>
+        <td><%= rest.rating %></td>
       </tr>
       <% end %>
     </table>

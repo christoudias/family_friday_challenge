@@ -11,6 +11,7 @@
           <th>Name</th>
           <th>Team</th>
           <th>Restaurant</th>
+          <th>Rating</th>
           <th>Token</th>
           <th colspan="3"></th>
         </tr>
@@ -27,11 +28,11 @@
             <td><%= correspondence.email %></td>
             <td><%= correspondence.name %></td>
             <td><%= correspondence.team %></td>
-            <td><%= correspondence.restaurant_id %></td>
+            <td><%= correspondence.restaurant.name %></td>
+            <td><%= correspondence.rating %></td>
             <td><%= correspondence.token %></td>
-            <td><%= link_to 'Show', correspondence %></td>
-            <td><%= link_to 'Edit', edit_correspondence_path(correspondence) %></td>
-            <td><%= link_to 'Destroy', correspondence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'View Email', correspondence %></td>
+            <td><%= link_to 'Delete', correspondence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
