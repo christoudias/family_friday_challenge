@@ -8,7 +8,7 @@ To run this application:
 4) Take your browser to http://localhost:3000
 
 
-==== Thoughts and Approach
+<h3>Thoughts and Approach</h3>
  The app starts with the import page where a JSON is ingested. This page will:
   - Lookup the restaurant and create it if it does not exist.
   - Add a record to the Correspondence Model for each user listed
@@ -21,8 +21,7 @@ To run this application:
 
   Restaurants can be viewed under the "Restaurants" link in the nav along with their cumulative rating. It shows a rating of 0 if there haven't been any votes on it yet.
 
-
-==== Next Steps
+<h3>Next Steps</h3>
 
    This time took a little longer than I expected so I need to stop short of where I wanted to be. But here is where I would take it next:
    1) Add pagination onto the list of restaurants and emails
