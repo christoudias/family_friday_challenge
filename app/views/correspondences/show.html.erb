@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @correspondence.email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @correspondence.name %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @correspondence.team %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @correspondence.restaurant_id %>
+</p>
+
+<p>
+  <strong>Token:</strong>
+  <%= @correspondence.token %>
+</p>
+
+<%= link_to 'Edit', edit_correspondence_path(@correspondence) %> |
+<%= link_to 'Back', correspondences_path %>

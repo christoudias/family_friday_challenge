@@ -1,0 +1,122 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1>New Email</h1>
+  </div>
+</div>
+
+
+<%= render :partial => "layouts/messages" %>
+<div class="row">
+  <div class="col-md-4">
+    Test cases will go here.
+  </div>
+
+  <div class="col-md-4">
+    <%= form_tag url_for(correspondences_path), :method => :post, :id => "cart-form" do %>
+      <label>Enter JSON Here</label>
+      <textarea name="input" class="form-control" placeholder="JSON goes here." style="height:400px;">
+        {
+      "members": [
+        {
+        "email": "jill@mycompany.com",
+        "name": "Jill",
+        "team": "engineering"
+        },
+        {
+        "email": "rohit@mycompany.com",
+        "name": "Rohit",
+        "team": "finance"
+        },
+        {
+        "email": "maria@mycompany.com",
+        "name": "Maria",
+        "team": "operations"
+        }
+      ],
+      "restaurant": {
+      "logo": "http://example.com/images/pizza.png",
+      "name": "Pizza R Us",
+      "yelp_link": "https://yelp.com/pizza-r-us"
+      }
+    }
+      </textarea>
+        <br>
+      <input type="submit" class="btn btn-primary" value="Create Email Templates"/>
+
+    <% end %>
+
+  </div>
+
+
+  <div class="col-md-4">
+    <h2>Family Friday Email</h2>
+
+    After a great meal with other A-Listers, we want to know how the lunch went.
+    <br><br>
+    What's the best way to solicit feedback? You guessed it: email! Everyone loves email, so let's craft a new one to send to our teammates after Family Fridays.
+
+    <h4>Project</h4>
+
+    Your initial implementation should be short and sweet. Before your remote interview, please take a moment to understand the problem, ask any questions you have, and build an initial solution. Depending on your approach, most solutions take somewhere from 30 to 90 minutes to be built, depending on your approach. You will have two days before your remote interview to build and share your solution.
+    <br><br>
+    Use whatever technologies that will best show off your skills and with which you're most comfortable. Whatever you choose, your code should be something you're proud to push to production.
+    <br><br>
+    When you're done, please send us a link to the GitHub repository containing your code so we can clone it and be prepared before joining you on the Google Hangout. During your interview, we'll review your solution, talk about your decisions, and then extend the program together.
+
+    <h4>Requirements</h4>
+    <br><br>
+    Given this payload:
+    <pre>
+    {
+      "members": [
+        {
+        "email": "jill@mycompany.com",
+        "name": "Jill",
+        "team": "engineering"
+        },
+        {
+        "email": "rohit@mycompany.com",
+        "name": "Rohit",
+        "team": "finance"
+        },
+        {
+        "email": "maria@mycompany.com",
+        "name": "Maria",
+        "team": "operations"
+        }
+      ],
+      "restaurant": {
+      "logo": "http://example.com/images/pizza.png",
+      "name": "Pizza R Us",
+      "yelp_link": "https://yelp.com/pizza-r-us"
+      }
+    }
+    </pre>
+    Write an html template that can be sent via email. The email should be able to do 4 things:
+    <ol>
+      <li>Have dynamic content.</li>
+      <li>Be customized to a specific team member or group of members.</li>
+      <li>Allow for a one-click rating of the completed lunch to be submitted.</li>
+      <li>Contain trackable links for analysis.</li>
+    </ol>
+
+    <h4>Tests</h4>
+
+    Testing is always a good idea, and it is even better if the tests pass.
+
+    <h4>Documentation</h4>
+
+    Include a README describing your approach and any interesting decisions you made. Comment your code the way you would at work. Your commit history is interesting too, since it shows some of your process.
+
+  </div>
+
+
+</div>
+
+
+<script>
+$('.nav-new-correspondence').addClass('active')
+</script>
+
+
+

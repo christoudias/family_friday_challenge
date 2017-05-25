@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  name: MyString
+  team: MyString
+  restaurant_id: 1
+  token: MyString
+
+two:
+  email: MyString
+  name: MyString
+  team: MyString
+  restaurant_id: 1
+  token: MyString

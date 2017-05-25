@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Restaurants</h1>
+
+    <table class="table">
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Yelp Link</th>
+        <th>A-List Score</th>
+      </tr>
+      <% if @restaurants.size == 0 %>
+        <tr>
+          <td colspan="4">No records found</td>
+        </tr>
+      <% end %>
+      <% @restaurants.each do |rest| %>
+      <tr>
+        <td><img src="<%= rest.logo %>"></td>
+        <td><%= rest.name %></td>
+        <td><%= link_to rest.yelp_link, rest.yelp_link %></td>
+        <td>0</td>
+      </tr>
+      <% end %>
+    </table>
+
+
+
+    <script>
+      $('.nav-restaurants').addClass('active')
+    </script>
+
+
+  </div>
+</div>

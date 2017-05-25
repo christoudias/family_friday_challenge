@@ -1,0 +1,6 @@
+<% if flash[:success]  %>
+    <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span> <%= raw(flash[:success]) %></div>
+<% end %>
+<% if flash[:error]  %>
+    <div class="alert alert-danger"><%= raw(flash[:error]) %></div>
+<% end %>
