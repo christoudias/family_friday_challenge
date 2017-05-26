@@ -25,8 +25,9 @@ class CorrespondencesController < ApplicationController
   # POST /correspondences.json
   def create
     if params[:input]
-      data = Correspondence.new.input_valid?(params[:input])
+      data = Correspondence.new.input_valid?(params[:input]) # make sure the input is valid
       if data
+        #first find the restaurant. Create it if it doens't exist
         restaurant = Restaurant.find_by_name(data["restaurant"]["name"])
         if !restaurant
           restaurant = Restaurant.new(data["restaurant"])
@@ -36,8 +37,8 @@ class CorrespondencesController < ApplicationController
         end
 
 
-        successful_import = []
-        failed_import = []
+        successful_import = [] # array of emails successfully imported
+        failed_import = [] # array of emails which failed
         data["members"].each do |member|
           corr = restaurant.correspondences.build(member)
           if corr.save
@@ -60,19 +61,6 @@ class CorrespondencesController < ApplicationController
 
     render 'new'
 
-
-    # render :json => params and return
-    # @correspondence = Correspondence.new(correspondence_params)
-    #
-    # respond_to do |format|
-    #   if @correspondence.save
-    #     format.html { redirect_to @correspondence, notice: 'Correspondence was successfully created.' }
-    #     format.json { render :show, status: :created, location: @correspondence }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @correspondence.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /correspondences/1
