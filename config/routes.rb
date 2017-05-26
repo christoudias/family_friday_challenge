@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :correspondences
   match "/restaurants" => "restaurants#index", :via => :get
+  match "/groups" => "correspondences#groups", :via => :get
   match "/rate/:token/:rating" => "restaurants#rate", :via => :get
 
   root "correspondences#index"

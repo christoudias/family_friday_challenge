@@ -32,7 +32,7 @@ class CorrespondencesController < ApplicationController
         if !restaurant
           restaurant = Restaurant.new(data["restaurant"])
           if !restaurant.save
-            flash[:error] = "Error saving restaurant. Please make sure all fields are present."
+            flash.now[:error] = "Error saving restaurant. Please make sure all fields are present."
           end
         end
 
@@ -48,14 +48,14 @@ class CorrespondencesController < ApplicationController
           end
         end
         if successful_import.size > 0
-          flash[:success] = "#{successful_import.size} #{"record".pluralize(successful_import.size)} imported successfully."
+          flash.now[:success] = "#{successful_import.size} #{"record".pluralize(successful_import.size)} imported successfully."
         end
         if failed_import.size > 0
-          flash[:error] = "#{failed_import.size} #{"record".pluralize(failed_import.size)} failed to import: <br>#{failed_import.join("<br>")}"
+          flash.now[:error] = "#{failed_import.size} #{"record".pluralize(failed_import.size)} failed to import: <br>#{failed_import.join("<br>")}"
         end
 
       else
-        flash[:error] = "Please enter valid JSON with all required fields."
+        flash.now[:error] = "Please enter valid JSON with all required fields."
       end
     end
 
@@ -85,6 +85,46 @@ class CorrespondencesController < ApplicationController
       format.html { redirect_to correspondences_url, flash[:success] = 'Correspondence was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def groups
+    users = Correspondence.all.limit(params[:lim])
+    number_of_groups = (users.size / 3).floor
+    remainder = users.size % (number_of_groups * 3)
+
+    #render :json => {:groups => number_of_groups, :remainder => remainder} and return
+
+    if remainder > number_of_groups
+      base_group_size = 4
+    else
+      base_group_size = 3
+    end
+
+
+    number_of_groups = (users.size / base_group_size).floor
+
+    groups = {}
+
+    users.shuffle.each_with_index do | user,index|
+      group_id = index % number_of_groups
+      if !groups.has_key?(group_id)
+        groups[group_id] = []
+      end
+      groups[group_id] << user.name
+    end
+
+
+    render :json => groups and return
+
+
+
+
+
+    render :json => {:groups => number_of_groups, :remainder => remainder} and return
+
+
+
+
   end
 
   private
